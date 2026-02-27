@@ -1,38 +1,149 @@
-.App {
-  text-align: center;
+.AppShell,
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.AppShell * {
+  box-sizing: border-box;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+.AppShell {
   min-height: 100vh;
+  background: #f3f6fb;
+  color: #111827;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 24px;
 }
 
-.App-link {
-  color: #61dafb;
+.AppMain {
+  width: min(860px, 100%);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.appTitle {
+  margin: 0 0 6px;
+  font-size: 36px;
+}
+
+.subTitle {
+  margin: 0 0 18px;
+  color: #4b5563;
+}
+
+.menuGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.menuButton {
+  text-align: left;
+  background: #ffffff;
+  border: 1px solid #d0d7de;
+  border-radius: 10px;
+  padding: 14px;
+  cursor: pointer;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+}
+
+.menuButton:hover {
+  background: #f8fafc;
+}
+
+.menuButtonTitle {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.menuButtonMeta {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #6b7280;
+}
+
+.exerciseScreen {
+  display: grid;
+  gap: 14px;
+}
+
+.topBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.backButton {
+  background: #ffffff;
+  border: 1px solid #d0d7de;
+  border-radius: 10px;
+  padding: 10px 12px;
+  cursor: pointer;
+}
+
+.backButton:hover {
+  background: #f8fafc;
+}
+
+.topBarMeta {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #6b7280;
+}
+
+.screenTitle {
+  margin: 0 0 10px;
+  font-size: 28px;
+}
+
+.card {
+  background: #ffffff;
+  border: 1px solid #d0d7de;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+}
+
+.bigValue {
+  font-variant-numeric: tabular-nums;
+  font-size: 54px;
+  margin-bottom: 14px;
+}
+
+.buttonRow {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+button.primary,
+button.secondary {
+  border-radius: 10px;
+  padding: 10px 14px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+button.primary {
+  background: #2563eb;
+  border-color: #1d4ed8;
+  color: #ffffff;
+}
+
+button.secondary {
+  background: #e5e7eb;
+  border-color: #d1d5db;
+  color: #111827;
+}
+
+button.primary:hover {
+  background: #1d4ed8;
+}
+
+button.secondary:hover {
+  background: #d1d5db;
 }
