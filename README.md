@@ -1,22 +1,16 @@
 # Updated Exercise App
 
-React exercise tracker with three exercise types:
+Simple React exercise tracker for a class lab.
 
-- Repetition: Push Up
-- Duration: Plank
-- Running: stopwatch controls
-
-## Run locally
+## Run
 
 ```bash
 npm install
 npm start
 ```
 
-## Deploy to GitHub Pages
+## Deploy (GitHub Pages)
 
 ```bash
-npm install
 npm run deploy
 ```
-
