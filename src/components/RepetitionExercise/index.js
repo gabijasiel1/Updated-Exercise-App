@@ -1,27 +1,42 @@
 import { useState } from 'react';
 
-export default function RepetitionExercise({ name }) {
+export default function RepetitionExercise({ name, imageSrc }) {
   const [count, setCount] = useState(0);
 
   return (
-    <section>
-      <h1 className="screenTitle">{name}</h1>
+    <section className="workoutScreen">
+      <h1 className="workoutTitle">{name}</h1>
 
-      <div className="card">
-        <div className="bigValue" aria-label="Repetition count">
+      <div className="workoutHero">
+        {imageSrc ? (
+          <img className="workoutHeroImg workoutHeroImg--contain" src={imageSrc} alt={`${name}`} />
+        ) : (
+          <div className="workoutHeroImage workoutHeroImage--pushups" aria-hidden="true">
+            Push Ups
+          </div>
+        )}
+      </div>
+
+      <div className="workoutStepper" aria-label="Repetition stepper">
+        <button
+          className="stepperButton"
+          type="button"
+          onClick={() => setCount((c) => Math.max(0, c - 1))}
+          aria-label="Decrease"
+        >
+          −
+        </button>
+        <div className="stepperValue" aria-label="Repetition count">
           {count}
         </div>
-
-        <div className="buttonRow">
-          <button className="primary" type="button" onClick={() => setCount((c) => c + 1)}>
-            +1 Rep
-          </button>
-          <button className="secondary" type="button" onClick={() => setCount(0)}>
-            Reset
-          </button>
-        </div>
+        <button className="stepperButton" type="button" onClick={() => setCount((c) => c + 1)} aria-label="Increase">
+          +
+        </button>
       </div>
+
+      <button className="workoutReset" type="button" onClick={() => setCount(0)}>
+        Reset
+      </button>
     </section>
   );
 }
-

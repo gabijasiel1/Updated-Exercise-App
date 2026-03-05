@@ -12,7 +12,7 @@ function formatStopwatch(totalMs) {
   return `${pad2(minutes)}:${pad2(seconds)}:${pad2(centiseconds)}`;
 }
 
-export default function DurationExercise({ name, imageSrc }) {
+export default function RunningExercise({ name, imageSrc, onQuit }) {
   const [isRunning, setIsRunning] = useState(false);
   const [elapsedMs, setElapsedMs] = useState(0);
 
@@ -44,8 +44,8 @@ export default function DurationExercise({ name, imageSrc }) {
         {imageSrc ? (
           <img className="workoutHeroImg" src={imageSrc} alt={`${name}`} />
         ) : (
-          <div className="workoutHeroImage workoutHeroImage--plank" aria-hidden="true">
-            Plank
+          <div className="workoutHeroImage workoutHeroImage--running" aria-hidden="true">
+            Running
           </div>
         )}
       </div>
@@ -70,12 +70,23 @@ export default function DurationExercise({ name, imageSrc }) {
           type="button"
           onClick={() => {
             setIsRunning(false);
-            setElapsedMs(0);
+            onQuit?.();
           }}
         >
-          Reset
+          Quit
         </button>
       </div>
+
+      <button
+        className="workoutReset"
+        type="button"
+        onClick={() => {
+          setIsRunning(false);
+          setElapsedMs(0);
+        }}
+      >
+        Reset
+      </button>
     </section>
   );
 }
